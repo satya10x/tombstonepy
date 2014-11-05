@@ -1,0 +1,1 @@
+from tombstone.modules.tomb import Tombstone as logs

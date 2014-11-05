@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: tombstone
+Version: 0.1
+Summary: A static blog generation library built around cherrypy
+Home-page: http://www.example.com/
+Author: H1ccup
+Author-email: yourname@example.com
+License: BSD License
+Description: ===
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Cherrypy
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
