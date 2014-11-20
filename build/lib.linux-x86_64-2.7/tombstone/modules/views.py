@@ -1,11 +1,13 @@
-class TombController:
+class TombView(object):
 	def __init__(self):
 		pass
 
-	def store_data(self, module_name, func_name, data):
-		key = module_name + ":" + func_name
-		
+	@staticmethod
+	def show_data():
+		""" Shows data in tabular form in a html page"""
+		return "Hello world!"
 
-	def get_data(self, module_name, func_name):
+	@staticmethod
+	def get_json_data():
+		"""Returns json data"""
 		pass
-
