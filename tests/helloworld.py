@@ -1,14 +1,11 @@
 import tombstone
-
-def print_Wal():
-	print "wal"
-	return None
+import datetime
 
 class HelloWorld:
 	def __init__(self):
 		pass
 
-	@tombstone.logs(print_Wal)
+	@tombstone.logs(name="hi", time=datetime.datetime.now())
 	def test_crap(self):
 		print "why"
 
