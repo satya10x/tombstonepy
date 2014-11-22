@@ -51,12 +51,12 @@ class TombController:
 
 		if data_type == "access_log":
 			# create key for access log
-			return (module_name + ":" + func_name + ":" 
+			return (module_name.lower() + ":" + func_name + ":" 
 				+ data_type + ":" + str(self.get_unix_time_stamp()))
 
 		elif data_type == "execution_log":
 			# create key for execution log
-			return (module_name + ":" + func_name 
+			return (module_name.lower() + ":" + func_name 
 					+ ":" + data_type + ":" + str(self.get_unix_time_stamp()))
 	
 	def get_unix_time_stamp(self):
