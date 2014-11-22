@@ -36,8 +36,10 @@ class RedisApi(object):
 		except:
 			raise
 
-	def get_all_value_from_hash(self, r_hash):
+	def get_all_values_from_hash(self, r_hash):
 		return redis_ts.hgetall(r_hash)
+
+
 
 	def delete(self, key):
 		return redis_ts.delete(key)

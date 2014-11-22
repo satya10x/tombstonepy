@@ -77,6 +77,6 @@ class Tombstone(object):
 	def set_execution_time_log(self, func_name, execution_time):
 		try:
 			TombController().store_data(self.func_defns["name"], func_name,
-									execution_time, "set_execution_time_log")
+									execution_time, "execution_log")
 		except:
 			raise
