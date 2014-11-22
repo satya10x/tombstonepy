@@ -10,7 +10,7 @@ class TombController:
 	def store_data(self, module_name, func_name, data, data_type):
 		"""I am so bored wondering about the structure of
 			redis cache that I'm staring at Shradhha Kapoor
-			dance around to Dance Basanti. Save me! 
+			dance to Dance Basanti. Save me! 
 		"""
 		# create key based upon data type
 		key = self.create_key(module_name, func_name, data_type)
@@ -44,7 +44,8 @@ class TombController:
 
 			Edit 3: Okay, I'm going to use some Hash. 
 					HSET ts module_name:func_name:data_type:time_stamp 
-					So, I can retrieve the data doing HGETALL ts. 
+					So, I can retrieve the data doing HGETALL ts
+					because Unchi Waali heels pehenke dance basanti
 
 		"""
 
@@ -68,7 +69,9 @@ class TombController:
 			* Last usage. 
 			* function name 
 			* module name 
+			* ashiqon se deal to karke dance basanti
 		"""
+
 		response = defaultdict(dict) # module_name:function_name being the keys
 
 		for key, value in data.iteritems():

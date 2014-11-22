@@ -43,14 +43,17 @@ class Tombstone(object):
 		validated_resp = {}
 
 		try:
+			if "module_name" not in kwargs.keys():
+				raise ("You have to send the module name in the decorator!")
+
 			# if no of arguments = 1 then check if it has name or time
 			if len(kwargs.keys()) == 1:
-				if ("time" not in kwargs.keys() or "name" not in kwargs.keys()):
+				if ("time" not in kwargs.keys() or "module_name" not in kwargs.keys()):
 					raise Exception("Wrong parameters sent! Check the docs!")
 
 			# if no of arguments = 2 then check if it has name or time
 			elif len(kwargs.keys()) == 2:
-				if ("time" not in kwargs.keys() and "name" not in kwargs.keys()):
+				if ("time" not in kwargs.keys() and "module_name" not in kwargs.keys()):
 					raise Exception("Wrong parameters sent! Check the docs!")
 
 			# if "time" is one of the keys, then it has to be datetime.
@@ -61,22 +64,22 @@ class Tombstone(object):
 			# create proper response
 			validated_resp["time"] = (kwargs["time"] if "time" in kwargs.keys() 
 											else datetime.datetime.now())
-			validated_resp["name"] = (kwargs["name"] if "name" in kwargs.keys()
-											else "hello")
+			validated_resp["module_name"] = kwargs["module_name"]
+			
 			return validated_resp
 		except Exception, e:
 			raise
 
 	def set_access_log(self, func_name):
 		try:
-			TombController().store_data(self.func_defns["name"], func_name,
+			TombController().store_data(self.func_defns["module_name"], func_name,
 									self.func_defns["time"], "access_log")
 		except:
 			raise
 
 	def set_execution_time_log(self, func_name, execution_time):
 		try:
-			TombController().store_data(self.func_defns["name"], func_name,
+			TombController().store_data(self.func_defns["module_name"], func_name,
 									execution_time, "execution_log")
 		except:
 			raise
