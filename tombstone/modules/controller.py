@@ -1,6 +1,7 @@
 import datetime
 import calendar
 from redis_api import RedisApi
+from collections import defaultdict
 
 class TombController:
 	def __init__(self):
@@ -41,7 +42,7 @@ class TombController:
 
 					I am not doing Redis data type jokes here! 
 
-			Edit 3: Okay, I'm going to use Hash. 
+			Edit 3: Okay, I'm going to use some Hash. 
 					HSET ts module_name:func_name:data_type:time_stamp 
 					So, I can retrieve the data doing HGETALL ts. 
 
@@ -68,11 +69,40 @@ class TombController:
 			* function name 
 			* module name 
 		"""
-		for datum in data:
-			print datum
+		response = defaultdict(dict) # module_name:function_name being the keys
 
-	def compute_execution_time(self, data):
-		pass
+		for key, value in data.iteritems():
+			if value: #check data integrity, fuck knows what might show up here and cause issues! 
+				try:
+					key_splits = key.split(":")
+					if not key_splits[0] + ":" + key_splits[1] in response.keys():
+						response[key_splits[0] + ":" + key_splits[1]] = self.create_func_dict(key_splits[0], key_splits[1])
+					if "execution_log" in key_splits:	
+						response[key_splits[0] + ":" + key_splits[1]]["avg_exe_time"] = (response[key_splits[0] + ":" + 
+																							key_splits[1]]["avg_exe_time"]
+																							+ float(value))/2
+					elif "access_log" in key_splits:
+						response[key_splits[0] + ":" + key_splits[1]]["usage_count"] += 1
+						response[key_splits[0] + ":" + key_splits[1]]["last_usage"] = value
+
+				except:
+					pass #pass because lolz, who cares about key integrity error, list 
+						 # out of range error and all that 
+
+		return response
+
+	def create_func_dict(self, mod_name, func_name):
+		return {"avg_exe_time": 0,
+				"usage_count": 0,
+				"last_usage": datetime.datetime.now(),
+				"function_name":func_name,
+				"module_name": mod_name }
+
+	def remove_all_data(self):
+		RedisApi.delete("ts:*")
+
+	def remove_data(self, key):
+		RedisApi.delete("ts:key:*")
 
 
 

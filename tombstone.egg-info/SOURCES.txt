@@ -6,7 +6,7 @@ tombstone.egg-info/SOURCES.txt
 tombstone.egg-info/dependency_links.txt
 tombstone.egg-info/top_level.txt
 tombstone/modules/__init__.py
+tombstone/modules/api.py
 tombstone/modules/controller.py
 tombstone/modules/redis_api.py
 tombstone/modules/tomb.py
-tombstone/modules/views.py

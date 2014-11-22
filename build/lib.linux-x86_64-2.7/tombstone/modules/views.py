@@ -1,18 +1,13 @@
 from controller import TombController 
+import json
 
 class TombView(object):
 	def __init__(self):
 		pass
 
 	@staticmethod
-	def show_data():
+	def get_data(type=None):
 		""" Shows data in tabular form in a html page"""
 		tomb = TombController()
 		data = tomb.get_all_data()
-		tomb.compute_access_log(data)
-		return "Hello world!"
-
-	@staticmethod
-	def get_json_data():
-		"""Returns json data"""
-		pass
+		return json.dumps(tomb.compute_access_log(data))

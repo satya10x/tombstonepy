@@ -5,7 +5,7 @@ class HelloWorld:
 	def __init__(self):
 		pass
 
-	@tombstone.logs(name="hi", time=datetime.datetime.now())
+	@tombstone.logs(module_name="hi", time=datetime.datetime.now())
 	def test_crap(self):
 		print "why"
 

@@ -3,7 +3,7 @@ from tombstone import Tomb
 
 class HelloWorld(object):
     def index(self):
-        return Tomb.show_data()
+        return Tomb.get_data()
 
     index.exposed = True
 

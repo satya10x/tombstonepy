@@ -24,7 +24,7 @@ class Tombstone(object):
 
 
 				# stores execution time of function
-				self.set_execution_time_log(function_name.__name__, execution_time) 
+				self.set_execution_time_log(function_name.__name__, milliseconds) 
 
 				# return the control back to its caller
 				return result
