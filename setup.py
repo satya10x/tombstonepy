@@ -6,6 +6,11 @@ README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 # allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
+install_requires = [
+	'redis'
+]
+
+
 setup(
 	name='tombstone',
 	version='0.1',
@@ -14,9 +19,9 @@ setup(
 	license='BSD License',  # example license
 	description='A static blog generation library built around cherrypy',
 	long_description=README,
-	url='http://www.example.com/',
-	author='H1ccup',
-	author_email='yourname@example.com',
+	url='',
+	author='Satyajit Sarangi',
+	author_email='writetosatyajit@gmail.com',
 	classifiers=[
 		'Environment :: Web Environment',
 		'Framework :: Cherrypy',
@@ -27,4 +32,5 @@ setup(
 		# Replace these appropriately if you are stuck on Python 2.
 		'Programming Language :: Python :: 2.7',
 	],
+	install_requires = install_requires
 )
