@@ -41,12 +41,14 @@ API Reference
 -------------
 
 .. code-block:: pycon
+
 	from tombstone import Tomb
 	print Tomb.get_data() # gets json data which contains module name,
-	# function name, average execution time,
-	# usage count and last usage date time string
+						  # function name, average execution time,
+						  # usage count and last usage date time string
 	 
 	#Clear data for the function
 	Tomb.remove_data("module_name:function_name")
+	
 	# Clear all data
 	Tomb.remove_all_data()
