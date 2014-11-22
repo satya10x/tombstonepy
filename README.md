@@ -11,7 +11,6 @@ tombstone-py requires a running Redis server. See `Redis's quickstart
 
 To install tombstone-py, simply:
 
-.. code-block:: bash
 
     $ sudo python setup.py install 
 
@@ -19,7 +18,6 @@ To install tombstone-py, simply:
 Getting Started
 ---------------
 
-.. code-block:: pycon
 
 	import tombstone
 	import datetime
@@ -40,7 +38,7 @@ Getting Started
 API Reference
 -------------
 
-.. code-block:: pycon
+
 
 	from tombstone import Tomb
 	print Tomb.get_data() # gets json data which contains module name,
